@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aktuální data - Meteostanice Staré Podlesí</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="data.js"></script>
+</head>
+<body>
+    <div class="navbar">
+        <a href="index.html">Úvod</a>
+        <a href="data.html">Aktuální data</a>
+        <a href="records.html">Rekordy</a>
+    </div>
+
+    <div class="container">
+        <h1>Aktuální data</h1>
+        <div class="data-box">
+            <strong>Teplota 2m nad zemí:</strong> <span id="temp">-- °C</span>
+        </div>
+        <div class="data-box">
+            <strong>Tlak:</strong> <span id="pressure">-- hPa</span>
+        </div>
+        <div class="data-box">
+            <strong>Rychlost větru:</strong> <span id="wind">-- km/h</span>
+        </div>
+        <div class="data-box">
+            <strong>Srážky:</strong> <span id="rain">-- mm</span>
+        </div>
+        <div class="data-box">
+            <strong>PM2.5:</strong> <span id="pm25">-- µg/m³</span>
+        </div>
+        <div class="data-box">
+            <strong>PM10:</strong> <span id="pm10">-- µg/m³</span>
+        </div>
+        <div class="data-box">
+            <strong>Teplota 10 cm nad zemí:</strong> <span id="temp_10cm">-- °C</span>
+        </div>
+        <div class="data-box">
+            <strong>Teplota půdy 10 cm pod zemí:</strong> <span id="soil_temp">-- °C</span>
+        </div>
+        <div class="data-box">
+            <strong>Vlhkost půdy 10 cm:</strong> <span id="soil_humidity">-- %</span>
+        </div>
+        <div class="data-box">
+            <strong>Teplota 10 m nad zemí:</strong> <span id="temp_10m">-- °C</span>
+        </div>
+    </div>
+</body>
+</html>
