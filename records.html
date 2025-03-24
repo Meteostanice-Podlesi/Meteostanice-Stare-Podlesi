@@ -4,30 +4,67 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rekordy - Meteostanice Staré Podlesí</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="records.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #87CEEB, #FFFFFF);
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: #4682B4;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+        .navbar a:hover {
+            background: #5A9BD4;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #4682B4;
+        }
+        h2 {
+            color: #2F4F4F;
+        }
+        .data-box {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigační panel -->
     <div class="navbar">
         <a href="index.html">Úvod</a>
         <a href="data.html">Aktuální data</a>
         <a href="records.html">Rekordy</a>
     </div>
-
-    <div class="container">
-        <h1>Rekordy meteostanice</h1>
-        <div class="data-box">
-            <strong>Maximální teplota vzduchu:</strong> 34.6 °C
-        </div>
-        <div class="data-box">
-            <strong>Minimální teplota vzduchu:</strong> -14.4 °C
-        </div>
-        <div class="data-box">
-            <strong>Maximální výška sněhu:</strong> 37 cm
-        </div>
-        <div class="data-box">
-            <strong>Maximální náraz větru:</strong> 22.6 km/h
-        </div>
+    
+    <!-- Rekordy -->
+    <div class="container" id="records">
+        <h1>Meteostanice Staré Podlesí</h1>
+        <h2>Rekordy meteostanice</h2>
+        <div class="data-box"><strong>Maximální teplota vzduchu:</strong> 34.6 °C</div>
+        <div class="data-box"><strong>Minimální teplota vzduchu:</strong> -14.4 °C</div>
+        <div class="data-box"><strong>Maximální výška sněhu:</strong> 37 cm</div>
+        <div class="data-box"><strong>Maximální náraz větru:</strong> 22.6 km/h</div>
     </div>
 </body>
 </html>
