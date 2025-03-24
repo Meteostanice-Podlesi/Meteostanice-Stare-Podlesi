@@ -8,9 +8,11 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: linear-gradient(to bottom, #ff9966, #ff5e62);
+            background: linear-gradient(to top, #00b4d8, #80e0d9); /* Plynulý přechod mezi tyrkysovou od tmavé na světlou */
             padding: 20px;
             position: relative;
+            margin: 0;
+            min-height: 100vh;
         }
         body::before {
             content: "";
@@ -19,13 +21,13 @@
             left: 0;
             width: 100%;
             height: 100%;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px); /* Rozmazané pozadí */
             z-index: -1;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: 10vh auto;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.85); /* Poloprůhledné pozadí pro obsah */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
@@ -35,6 +37,9 @@
             justify-content: space-between;
             padding: 10px;
             border-bottom: 1px solid #ddd;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.8); /* Mírně průhledné pozadí pro každou položku */
+            border-radius: 5px;
         }
         .navbar {
             display: flex;
