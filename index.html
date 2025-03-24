@@ -16,6 +16,10 @@
             document.getElementById("rain").textContent = data.rain + " mm";
             document.getElementById("pm25").textContent = data.pm25 + " µg/m³";
             document.getElementById("pm10").textContent = data.pm10 + " µg/m³";
+            document.getElementById("temp_10cm").textContent = data.temp_10cm + " °C";
+            document.getElementById("soil_temp").textContent = data.soil_temp + " °C";
+            document.getElementById("soil_humidity").textContent = data.soil_humidity + " %";
+            document.getElementById("temp_10m").textContent = data.temp_10m + " °C";
         }
 
         setInterval(fetchData, 60000); // Aktualizace každou minutu
@@ -25,16 +29,16 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: #f4f4f4;
+            background: linear-gradient(to bottom, #87CEEB, #FFFFFF);
             padding: 20px;
         }
         .container {
-            max-width: 600px;
+            max-width: 800px;
             margin: auto;
             background: white;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
         .data-box {
             display: flex;
@@ -42,18 +46,42 @@
             padding: 10px;
             border-bottom: 1px solid #ddd;
         }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: #4682B4;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        .navbar a:hover {
+            background: #5A9BD4;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
+    <div class="navbar">
+        <a href="#">Úvod</a>
+        <a href="#data">Aktuální data</a>
+        <a href="#records">Rekordy</a>
+    </div>
     <div class="container">
-        <h1>Meteostanice Garni Gateway</h1>
+        <h1>Meteostanice Staré Podlesí</h1>
+        <h2 id="data">Aktuální data</h2>
         <div class="data-box"><strong>Teplota:</strong> <span id="temp">Načítání...</span></div>
         <div class="data-box"><strong>Tlak:</strong> <span id="pressure">Načítání...</span></div>
         <div class="data-box"><strong>Rychlost větru:</strong> <span id="wind">Načítání...</span></div>
         <div class="data-box"><strong>Srážky:</strong> <span id="rain">Načítání...</span></div>
         <div class="data-box"><strong>PM2.5:</strong> <span id="pm25">Načítání...</span></div>
         <div class="data-box"><strong>PM10:</strong> <span id="pm10">Načítání...</span></div>
+        <div class="data-box"><strong>Teplota 10 cm nad zemí:</strong> <span id="temp_10cm">Načítání...</span></div>
+        <div class="data-box"><strong>Teplota půdy 10 cm pod zemí:</strong> <span id="soil_temp">Načítání...</span></div>
+        <div class="data-box"><strong>Vlhkost půdy 10 cm pod zemí:</strong> <span id="soil_humidity">Načítání...</span></div>
+        <div class="data-box"><strong>Teplota v 10 metrech:</strong> <span id="temp_10m">Načítání...</span></div>
     </div>
 </body>
 </html>
-
