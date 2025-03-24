@@ -4,6 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aktuální data - Meteostanice Staré Podlesí</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        async function fetchData() {
+            const response = await fetch('http://tvuj-server.cz/api/data'); // Změň na skutečný server
+            const data = await response.json();
+
+            document.getElementById("temp").textContent = data.temperature + " °C";
+            document.getElementById("pressure").textContent = data.pressure + " hPa";
+            document.getElementById("wind").textContent = data.wind_speed + " km/h";
+            document.getElementById("rain").textContent = data.rain + " mm";
+            document.getElementById("pm25").textContent = data.pm25 + " µg/m³";
+            document.getElementById("pm10").textContent = data.pm10 + " µg/m³";
+            document.getElementById("temp_10cm").textContent = data.temp_10cm + " °C";
+            document.getElementById("soil_temp").textContent = data.soil_temp + " °C";
+            document.getElementById("soil_humidity").textContent = data.soil_humidity + " %";
+            document.getElementById("temp_10m").textContent = data.temp_10m + " °C";
+        }
+
+        setInterval(fetchData, 60000); // Aktualizace každou minutu
+        window.onload = fetchData;
+    </script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -25,9 +46,33 @@
             padding: 10px;
             border-bottom: 1px solid #ddd;
         }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: #4682B4;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            border-radius: 5px;
+        }
+        .navbar a:hover {
+            background: #5A9BD4;
+        }
     </style>
 </head>
 <body>
+    <!-- Navigační panel s tlačítky -->
+    <div class="navbar">
+        <a href="index.html">Úvod</a>
+        <a href="data.html">Aktuální data</a>
+        <a href="records.html">Rekordy</a>
+    </div>
+
+    <!-- Sekce pro aktuální data -->
     <div class="container">
         <h1>Aktuální data - Meteostanice Staré Podlesí</h1>
         <div class="data-box"><strong>Teplota vzduchu:</strong> <span id="temp">Načítám...</span></div>
@@ -42,25 +87,5 @@
         <div class="data-box"><strong>Teplota 10 m:</strong> <span id="temp_10m">Načítám...</span></div>
     </div>
 
-    <script>
-        async function fetchData() {
-            const response = await fetch('http://tvuj-server.cz/api/data'); // Změň na skutečný server
-            const data = await response.json();
-
-            document.getElementById("temp").textContent = data.temperature + " °C";
-            document.getElementById("pressure").textContent = data.pressure + " hPa";
-            document.getElementById("wind").textContent = data.wind_speed + " km/h";
-            document.getElementById("rain").textContent = data.rain + " mm";
-            document.getElementById("pm25").textContent = data.pm25 + " µg/m³";
-            document.getElementById("pm10").textContent = data.pm10 + " µg/m³";
-            document.getElementById("temp_10cm").textContent = data.temp_10cm + " °C";
-            document.getElementById("soil_temp").textContent = data.soil_temp + " °C";
-            document.getElementById("soil_humidity").textContent = data.soil_humidity + " %";
-            document.getElementById("temp_10m").textContent = data.temp_10m + " °C";
-        }
-
-        setInterval(fetchData, 60000); // Aktualizace každou minutu
-        window.onload = fetchData;
-    </script>
 </body>
 </html>
