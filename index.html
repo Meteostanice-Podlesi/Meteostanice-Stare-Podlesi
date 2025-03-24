@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meteostanice Garni Gateway</title>
+    <title>Meteostanice Staré Podlesí</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script>
         async function fetchData() {
@@ -65,23 +65,24 @@
 </head>
 <body>
     <div class="navbar">
-        <a href="#">Úvod</a>
-        <a href="#data">Aktuální data</a>
-        <a href="#records">Rekordy</a>
+        <a href="index.html">Úvod</a>
+        <a href="data.html">Aktuální data</a>
+        <a href="records.html">Rekordy</a>
     </div>
-    <div class="container">
+    
+    <div class="container" id="uvod">
         <h1>Meteostanice Staré Podlesí</h1>
-        <h2 id="data">Aktuální data</h2>
-        <div class="data-box"><strong>Teplota:</strong> <span id="temp">Načítání...</span></div>
-        <div class="data-box"><strong>Tlak:</strong> <span id="pressure">Načítání...</span></div>
-        <div class="data-box"><strong>Rychlost větru:</strong> <span id="wind">Načítání...</span></div>
-        <div class="data-box"><strong>Srážky:</strong> <span id="rain">Načítání...</span></div>
-        <div class="data-box"><strong>PM2.5:</strong> <span id="pm25">Načítání...</span></div>
-        <div class="data-box"><strong>PM10:</strong> <span id="pm10">Načítání...</span></div>
-        <div class="data-box"><strong>Teplota 10 cm nad zemí:</strong> <span id="temp_10cm">Načítání...</span></div>
-        <div class="data-box"><strong>Teplota půdy 10 cm pod zemí:</strong> <span id="soil_temp">Načítání...</span></div>
-        <div class="data-box"><strong>Vlhkost půdy 10 cm pod zemí:</strong> <span id="soil_humidity">Načítání...</span></div>
-        <div class="data-box"><strong>Teplota v 10 metrech:</strong> <span id="temp_10m">Načítání...</span></div>
+        <h2>Úvod</h2>
+        <p>Meteorologická stanice Staré Podlesí se nachází ve stejnojmenné vesnici v Podbrdí, v katastru města Příbram, Středočeský kraj.</p>
+        <p><strong>Měření:</strong> Meteostanice začala nahrávat svá data 27. prosince roku 2023. Nachází se zde i čidla na měření vlhkosti a teploty půdy, teploty a vlhkosti vzduchu v 10 cm nad zemí, 2 m nad zemí a 10 m nad zemí.</p>
+    </div>
+    
+    <div class="container" id="records">
+        <h2>Rekordy meteostanice</h2>
+        <div class="data-box"><strong>Maximální teplota vzduchu:</strong> 34.6 °C</div>
+        <div class="data-box"><strong>Minimální teplota vzduchu:</strong> -14.4 °C</div>
+        <div class="data-box"><strong>Maximální výška sněhu:</strong> 37 cm</div>
+        <div class="data-box"><strong>Maximální náraz větru:</strong> 22.6 km/h</div>
     </div>
 </body>
 </html>
