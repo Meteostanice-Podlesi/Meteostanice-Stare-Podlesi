@@ -11,8 +11,8 @@
             
             document.getElementById("temp").textContent = data.temperature + " °C";
             document.getElementById("humidity").textContent = data.humidity + " %";
-            document.getElementById("wind_speed").textContent = data.wind_speed + " km/h";
-            document.getElementById("wind_direction").textContent = data.wind_direction;
+            document.getElementById("wind").textContent = data.wind_speed + " km/h";
+            document.getElementById("wind_dir").textContent = data.wind_direction;
             document.getElementById("pressure").textContent = data.pressure + " hPa";
             document.getElementById("rain").textContent = data.rain + " mm";
             document.getElementById("temp_10cm").textContent = data.temp_10cm + " °C";
@@ -30,9 +30,11 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background: linear-gradient(to bottom, #ff9966, #ff5e62);
+            background: linear-gradient(to top, #00b4d8, #80e0d9); /* Plynulý přechod mezi tyrkysovou od tmavé na světlou */
             padding: 20px;
             position: relative;
+            margin: 0;
+            min-height: 100vh;
         }
         body::before {
             content: "";
@@ -41,22 +43,16 @@
             left: 0;
             width: 100%;
             height: 100%;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(10px); /* Rozmazané pozadí */
             z-index: -1;
         }
         .container {
             max-width: 800px;
             margin: 10vh auto;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.85); /* Poloprůhledné pozadí pro obsah */
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-        }
-        .data-box {
-            display: flex;
-            justify-content: space-between;
-            padding: 10px;
-            border-bottom: 1px solid #ddd;
         }
         .navbar {
             display: flex;
@@ -74,6 +70,15 @@
             background: #5A9BD4;
             border-radius: 5px;
         }
+        .data-box {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+            margin: 5px 0;
+            background: rgba(255, 255, 255, 0.8); /* Mírně průhledné pozadí pro každou položku */
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -84,16 +89,43 @@
     </div>
 
     <div class="container">
-        <h1>Aktuální data meteostanice</h1>
-        <div class="data-box"><strong>Teplota a vlhkost vzduchu:</strong> <span id="temp">-</span>, <span id="humidity">-</span> %</div>
-        <div class="data-box"><strong>Rychlost a směr větru:</strong> <span id="wind_speed">-</span> km/h, <span id="wind_direction">-</span></div>
-        <div class="data-box"><strong>Tlak:</strong> <span id="pressure">-</span> hPa</div>
-        <div class="data-box"><strong>Srážky:</strong> <span id="rain">-</span> mm</div>
-        <div class="data-box"><strong>Teplota v 10 cm nad zemí:</strong> <span id="temp_10cm">-</span> °C</div>
-        <div class="data-box"><strong>Teplota a vlhkost půdy v 10 cm:</strong> <span id="soil_temp">-</span> °C, <span id="soil_humidity">-</span> %</div>
-        <div class="data-box"><strong>Teplota v 10 metrech nad zemí:</strong> <span id="temp_10m">-</span> °C</div>
-        <div class="data-box"><strong>PM2.5:</strong> <span id="pm25">-</span> µg/m³</div>
-        <div class="data-box"><strong>PM10:</strong> <span id="pm10">-</span> µg/m³</div>
+        <h1>Aktuální data - Meteostanice Staré Podlesí</h1>
+        <div class="data-box">
+            <strong>Teplota vzduchu:</strong> <span id="temp">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>Vlhkost vzduchu:</strong> <span id="humidity">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>Rychlost větru:</strong> <span id="wind">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>Směr větru:</strong> <span id="wind_dir">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>Tlak:</strong> <span id="pressure">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>Srážky:</strong> <span id="rain">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>Teplota v 10 cm nad zemí:</strong> <span id="temp_10cm">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>Teplota půdy v 10 cm:</strong> <span id="soil_temp">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>Vlhkost půdy v 10 cm:</strong> <span id="soil_humidity">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>Teplota v 10 metrech nad zemí:</strong> <span id="temp_10m">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>PM2.5:</strong> <span id="pm25">loading...</span>
+        </div>
+        <div class="data-box">
+            <strong>PM10:</strong> <span id="pm10">loading...</span>
+        </div>
     </div>
 </body>
 </html>
