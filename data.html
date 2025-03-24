@@ -4,48 +4,98 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aktuální data - Meteostanice Staré Podlesí</title>
-    <link rel="stylesheet" href="styles.css">
-    <script src="data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+        async function fetchData() {
+            const response = await fetch('https://tvuj-server.cz/api/data'); // Nahraď správným API endpointem
+            const data = await response.json();
+            
+            document.getElementById("temp").textContent = data.temperature + " °C";
+            document.getElementById("pressure").textContent = data.pressure + " hPa";
+            document.getElementById("wind").textContent = data.wind_speed + " km/h";
+            document.getElementById("rain").textContent = data.rain + " mm";
+            document.getElementById("pm25").textContent = data.pm25 + " µg/m³";
+            document.getElementById("pm10").textContent = data.pm10 + " µg/m³";
+            document.getElementById("temp_10cm").textContent = data.temp_10cm + " °C";
+            document.getElementById("soil_temp").textContent = data.soil_temp + " °C";
+            document.getElementById("soil_humidity").textContent = data.soil_humidity + " %";
+            document.getElementById("temp_10m").textContent = data.temp_10m + " °C";
+        }
+
+        setInterval(fetchData, 60000); // Aktualizace každou minutu
+        window.onload = fetchData;
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background: linear-gradient(to bottom, #87CEEB, #FFFFFF);
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .navbar {
+            display: flex;
+            justify-content: center;
+            background: #4682B4;
+            padding: 10px;
+        }
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            font-size: 18px;
+        }
+        .navbar a:hover {
+            background: #5A9BD4;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #4682B4;
+        }
+        h2 {
+            color: #2F4F4F;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .data-box {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+    </style>
 </head>
 <body>
+    <!-- Navigační panel -->
     <div class="navbar">
         <a href="index.html">Úvod</a>
         <a href="data.html">Aktuální data</a>
         <a href="records.html">Rekordy</a>
     </div>
-
-    <div class="container">
-        <h1>Aktuální data</h1>
-        <div class="data-box">
-            <strong>Teplota 2m nad zemí:</strong> <span id="temp">-- °C</span>
-        </div>
-        <div class="data-box">
-            <strong>Tlak:</strong> <span id="pressure">-- hPa</span>
-        </div>
-        <div class="data-box">
-            <strong>Rychlost větru:</strong> <span id="wind">-- km/h</span>
-        </div>
-        <div class="data-box">
-            <strong>Srážky:</strong> <span id="rain">-- mm</span>
-        </div>
-        <div class="data-box">
-            <strong>PM2.5:</strong> <span id="pm25">-- µg/m³</span>
-        </div>
-        <div class="data-box">
-            <strong>PM10:</strong> <span id="pm10">-- µg/m³</span>
-        </div>
-        <div class="data-box">
-            <strong>Teplota 10 cm nad zemí:</strong> <span id="temp_10cm">-- °C</span>
-        </div>
-        <div class="data-box">
-            <strong>Teplota půdy 10 cm pod zemí:</strong> <span id="soil_temp">-- °C</span>
-        </div>
-        <div class="data-box">
-            <strong>Vlhkost půdy 10 cm:</strong> <span id="soil_humidity">-- %</span>
-        </div>
-        <div class="data-box">
-            <strong>Teplota 10 m nad zemí:</strong> <span id="temp_10m">-- °C</span>
-        </div>
+    
+    <!-- Aktuální data -->
+    <div class="container" id="data">
+        <h1>Meteostanice Staré Podlesí</h1>
+        <h2>Aktuální data</h2>
+        <div class="data-box"><strong>Teplota vzduchu:</strong> <span id="temp">Načítám...</span></div>
+        <div class="data-box"><strong>Tlak vzduchu:</strong> <span id="pressure">Načítám...</span></div>
+        <div class="data-box"><strong>Rychlost větru:</strong> <span id="wind">Načítám...</span></div>
+        <div class="data-box"><strong>Dešťové srážky:</strong> <span id="rain">Načítám...</span></div>
+        <div class="data-box"><strong>PM2.5:</strong> <span id="pm25">Načítám...</span></div>
+        <div class="data-box"><strong>PM10:</strong> <span id="pm10">Načítám...</span></div>
+        <div class="data-box"><strong>Teplota 10 cm nad zemí:</strong> <span id="temp_10cm">Načítám...</span></div>
+        <div class="data-box"><strong>Teplota půdy:</strong> <span id="soil_temp">Načítám...</span></div>
+        <div class="data-box"><strong>Vlhkost půdy:</strong> <span id="soil_humidity">Načítám...</span></div>
+        <div class="data-box"><strong>Teplota 10 m nad zemí:</strong> <span id="temp_10m">Načítám...</span></div>
     </div>
 </body>
 </html>
